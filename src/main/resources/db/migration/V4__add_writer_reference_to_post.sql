@@ -1,0 +1,1 @@
+ALTER TABLE Post ADD COLUMN writer_id INTEGER REFERENCES Writer(id);
