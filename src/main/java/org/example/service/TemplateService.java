@@ -8,8 +8,3 @@ public interface TemplateService<T> {
     T update(int modelId, T model);
     T remove(int modelId);
 }
-
-//    public Label addLabel(Label label) {
-//    public List<Label> listLabels() {
-//    public Label updateLabel(int labelId, Label labelParam) {
-//    public Label removeLabel(int labelId) {

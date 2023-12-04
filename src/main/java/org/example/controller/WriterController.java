@@ -37,8 +37,6 @@ public class WriterController {
     public static void main(String[] args) {
         WriterController writerController = new WriterController();
 
-        // Example: Adding a writer
-
         List<Post> postForWriter1 = Collections.singletonList(new Post("post1", LocalDateTime.now(), LocalDateTime.now()));
         List<Post> postForWriter2 = Collections.singletonList(new Post("post1", LocalDateTime.now(), LocalDateTime.now()));
         List<Post> postForWriter3 = Collections.singletonList(new Post("post1", LocalDateTime.now(), LocalDateTime.now()));
@@ -50,17 +48,14 @@ public class WriterController {
         writer1.setPosts(postForWriter2);
         writer1.setPosts(postForWriter3);
 
-//        Writer newWriter = new Writer("John", "Doe");
         writerController.addWriter(writer1);
         writerController.addWriter(writer2);
         writerController.addWriter(writer3);
 
-        // Example: Listing writers
         List<Writer> writers = writerController.listWriters();
         System.out.println("List of Writers: " + writers);
 
-        // Example: Updating a writer
-        int writerIdToUpdate = 1; // Replace with the actual writer ID
+        int writerIdToUpdate = 1;
 
         List<Post> postForWriter1_1 = Collections.singletonList(new Post("post1", LocalDateTime.now(), LocalDateTime.now()));
         Writer writer1_1 = new Writer("Andrew", "Burov");
@@ -69,8 +64,7 @@ public class WriterController {
         Writer updatedWriter = writerController.updateWriter(writerIdToUpdate, writer1_1);
         System.out.println("Updated Writer: " + updatedWriter);
 
-        // Example: Removing a writer
-        int writerIdToRemove = 2; // Replace with the actual writer ID
+        int writerIdToRemove = 2;
         Writer removedWriter = writerController.removeWriter(writerIdToRemove);
         System.out.println("Removed Writer: " + removedWriter);
     }

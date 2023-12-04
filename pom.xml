@@ -12,8 +12,8 @@
         <spring.version>4.1.1.RELEASE</spring.version>
         <lombok.version>1.18.30</lombok.version>
 
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <hibernate.version>6.4.0.Final</hibernate.version>
         <hibernate.entrymanager>5.6.15.Final</hibernate.entrymanager>
@@ -58,6 +58,11 @@
             <version>${hibernate.version}</version>
         </dependency>
         <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.entrymanager}</version>
@@ -74,10 +79,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.8.1</version> <!-- or the version you are using -->
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>11</source> <!-- or your Java version -->
+                    <target>11</target> <!-- or your Java version -->
                 </configuration>
             </plugin>
             <plugin>

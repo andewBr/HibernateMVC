@@ -37,13 +37,11 @@ public class LabelController {
         List<Label> labels = labelController.listLabels();
         System.out.println("List of Labels: " + labels);
 
-        // Example: Updating a label
-        int labelIdToUpdate = 1; // Replace with the actual label ID
+        int labelIdToUpdate = 1;
         Label updatedLabel = labelController.updateLabel(labelIdToUpdate, new Label("UpdatedLabel"));
         System.out.println("Updated Label: " + updatedLabel);
 
-        // Example: Removing a label
-        int labelIdToRemove = 2; // Replace with the actual label ID
+        int labelIdToRemove = 2;
         Label removedLabel = labelController.removeLabel(labelIdToRemove);
         System.out.println("Removed Label: " + removedLabel);
     }
