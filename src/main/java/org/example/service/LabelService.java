@@ -13,25 +13,24 @@ public class LabelService implements TemplateService<Label> {
         this.labelRepository = new LabelRepository();
     }
 
-
     @Override
     public void add(Label label) {
-        labelRepository.addLabel(label);
+        labelRepository.add(label);
     }
 
     @Override
     public List<Label> getList() {
-        return labelRepository.listLabels();
+        return labelRepository.list();
     }
 
     @Override
     public Label update(int modelId, Label label) {
-        return labelRepository.updateLabel(modelId, label);
+        return labelRepository.update(modelId, label);
     }
 
     @Override
     public Label remove(int modelId) {
-        return labelRepository.removeLabel(modelId);
+        return labelRepository.remove(modelId);
     }
 }
 

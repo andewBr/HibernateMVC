@@ -16,21 +16,21 @@ public class PostService implements TemplateService<Post> {
 
     @Override
     public void add(Post post) {
-        postRepository.addPost(post);
+        postRepository.add(post);
     }
 
     @Override
     public List<Post> getList() {
-        return postRepository.listPosts();
+        return postRepository.list();
     }
 
     @Override
     public Post update(int modelId, Post post) {
-        return postRepository.updatePost(modelId, post);
+        return postRepository.update(modelId, post);
     }
 
     @Override
     public Post remove(int modelId) {
-        return postRepository.removePost(modelId);
+        return postRepository.remove(modelId);
     }
 }

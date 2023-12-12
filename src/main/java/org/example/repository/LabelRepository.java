@@ -5,33 +5,33 @@ import org.example.model.Label;
 
 import java.util.List;
 
-public class LabelRepository {
+public class LabelRepository implements RepositoryTemplate<Label> {
 
-    public void addLabel(Label label) {
-        HibernateTemplate.performDatabaseOperation(session -> {
-            return session.save(label);
-        });
+    @Override
+    public Label add(Label label) {
+        return HibernateTemplate.performDatabaseOperation(session -> session.merge(label));
     }
 
-    public List<Label> listLabels() {
+    @Override
+    public List<Label> list() {
         return HibernateTemplate.performDatabaseOperation(session -> {
             return session.createQuery("FROM Label", Label.class).list();
         });
     }
 
-    public Label updateLabel(int labelId, Label labelParam) {
+    @Override
+    public Label update(int labelId, Label entityParam) {
         return HibernateTemplate.performDatabaseOperation(session -> {
             Label label = session.get(Label.class, labelId);
             if (label != null) {
-                label.setName(labelParam.getName());
+                label.setName(entityParam.getName());
                 session.update(label);
             }
             return label;
         });
     }
 
-
-    public Label removeLabel(int labelId) {
+    public Label remove(int labelId) {
         return HibernateTemplate.performDatabaseOperation(session -> {
             Label label = session.get(Label.class, labelId);
             if (label != null) {
@@ -40,5 +40,4 @@ public class LabelRepository {
             return label;
         });
     }
-
 }

@@ -15,21 +15,21 @@ public class WriterService implements TemplateService<Writer> {
 
     @Override
     public void add(Writer writer) {
-        writerRepository.addWriter(writer);
+        writerRepository.add(writer);
     }
 
     @Override
     public List<Writer> getList() {
-        return writerRepository.listWriters();
+        return writerRepository.list();
     }
 
     @Override
     public Writer update(int modelId, Writer model) {
-        return writerRepository.updateWriter(modelId, model);
+        return writerRepository.update(modelId, model);
     }
 
     @Override
     public Writer remove(int modelId) {
-        return writerRepository.removeWriter(modelId);
+        return writerRepository.remove(modelId);
     }
 }

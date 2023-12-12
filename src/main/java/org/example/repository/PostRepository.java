@@ -5,21 +5,22 @@ import org.example.model.Post;
 
 import java.util.List;
 
-public class PostRepository {
+public class PostRepository implements RepositoryTemplate<Post> {
 
-    public void addPost(Post post) {
-         HibernateTemplate.performDatabaseOperation(session -> {
-             return session.save(post);
-        });
+    @Override
+    public Post add(Post post) {
+         return (Post) HibernateTemplate.performDatabaseOperation(session -> session.save(post));
     }
 
-    public List<Post> listPosts() {
+    @Override
+    public List<Post> list() {
         return HibernateTemplate.performDatabaseOperation(session -> {
             return session.createQuery("FROM Post", Post.class).list();
         });
     }
 
-    public Post updatePost(int postId, Post postInput) {
+    @Override
+    public Post update(int postId, Post postInput) {
         return HibernateTemplate.performDatabaseOperation(session -> {
             Post post = session.get(Post.class, postId);
             if (post != null) {
@@ -34,7 +35,8 @@ public class PostRepository {
         });
     }
 
-    public Post removePost(int postId) {
+    @Override
+    public Post remove(int postId) {
         return HibernateTemplate.performDatabaseOperation(session -> {
             Post post = session.get(Post.class, postId);
             if (post != null) {
